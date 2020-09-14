@@ -13,6 +13,8 @@ output:
 ````{r}
 
 library(data.table)
+library(ggplot2)
+library(dplyr)
 
 url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 
@@ -42,14 +44,12 @@ head(steps)
 ```
 2. Histogram of the total number of steps taken each day
 
-```{r fig.width=7, fig.height=4, echo=FALSE}
-library(ggplot2)
-library(dplyr)
-
-steps %>% 
+```{r fig.width=7, fig.height=4}
+graphic1 <- steps %>% 
     ggplot(aes(x=steps))+
     geom_histogram(fill="red",binwidth = 1000)+
     labs(title="Daily Steps",x="Steps",y="Frecuency")
+print(graphic1)
 ```
 
 3. Mean and median number of steps taken each day

@@ -13,7 +13,34 @@ output:
 
 ```r
 library(data.table)
+library(ggplot2)
+library(dplyr)
+```
 
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:data.table':
+## 
+##     between, first, last
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 
 download.file(url,destfile = paste0(getwd(),'/repdata%2Fdata%2Factivity.zip'))
@@ -52,27 +79,12 @@ head(steps)
 2. Histogram of the total number of steps taken each day
 
 
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:data.table':
-## 
-##     between, first, last
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
+```r
+graphic1 <- steps %>% 
+    ggplot(aes(x=steps))+
+    geom_histogram(fill="red",binwidth = 1000)+
+    labs(title="Daily Steps",x="Steps",y="Frecuency")
+print(graphic1)
 ```
 
 ```
