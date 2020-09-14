@@ -1,5 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
+author: "Alonso Antón"
+date: "14/09/2020"
 output: 
   html_document:
     keep_md: true
@@ -50,11 +52,6 @@ head(steps)
 2. Histogram of the total number of steps taken each day
 
 
-```r
-library(ggplot2)
-library(dplyr)
-```
-
 ```
 ## 
 ## Attaching package: 'dplyr'
@@ -78,18 +75,12 @@ library(dplyr)
 ##     intersect, setdiff, setequal, union
 ```
 
-```r
-steps %>% 
-    ggplot(aes(x=steps))+
-    geom_histogram(fill="red",binwidth = 1000)+
-    labs(title="Daily Steps",x="Steps",y="Frecuency")
-```
-
 ```
 ## Warning: Removed 8 rows containing non-finite values (stat_bin).
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
 3. Mean and median number of steps taken each day
 
 
@@ -122,6 +113,7 @@ steps2 %>%
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
 2. The 5-minute interval that, on average, contains the maximum number of steps
 
 
